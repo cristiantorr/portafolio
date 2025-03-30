@@ -1,82 +1,77 @@
 ---
-import '../styles/global.css';
-import Footer from "../components/Footer.astro"
-import Header from "../components/Header.astro"
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body>
     <Header />
-		<slot />
+    <slot />
     <Footer />
-	</body>
+  </body>
 </html>
 
-    <style is:global>
- :root {
-        color-scheme: light dark;
-      }
-			html {
-        font-family: "Onest Variable", system-ui, sans-serif;
-        scroll-behavior: smooth;
-        height: 100%;
-        margin: 0;
-      }
+<style is:global>
+  :root {
+    color-scheme: light dark;
+  }
+  html {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+  }
 
-			body {
-        color: rgba(17, 17, 17, 0.9);
-        display: flex;
-        display: grid;
-  grid-template-rows: 1fr auto; /* El contenido ocupa todo el espacio disponible y el footer tiene un tamaño automático */
-  height: 100%;
- /*  background: linear-gradient(
-          135deg,
-          rgb(24 34 63) 0%,
-          rgb(3, 7, 18, 1) 100%
-        ); */
+  body {
+    color: rgba(17, 17, 17, 0.9);
+    display: flex;
+    display: grid;
+    grid-template-rows: 1fr auto; /* El contenido ocupa todo el espacio disponible y el footer tiene un tamaño automático */
+    height: 100%;
+    background: linear-gradient(90deg, rgb(40 43 56) 0%, rgb(3, 7, 18) 100%);
+  }
 
-      }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
+  @media (prefers-color-scheme: dark) {
+    body {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
 
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
+  #header-nav {
+    animation: blur linear both 0.5s;
+    animation-timeline: scroll();
+    animation-range: 0 500px;
+  }
 
-			#header-nav {
-        animation: blur linear both 0.5s;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-      }
-
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-/* 
+  @keyframes blur {
+    to {
+      backdrop-filter: blur(20px);
+      border-width: 1px;
+      border-color: rgba(0, 0, 0);
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: rgb(229, 229, 229);
+      border-radius: 9999px;
+    }
+  }
+  /* 
 	body {
 		background: linear-gradient(
           135deg,
@@ -84,6 +79,4 @@ import Header from "../components/Header.astro"
           rgb(3, 7, 18, 1) 100%
         );
 	} */
-
-	
 </style>
