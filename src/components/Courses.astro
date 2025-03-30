@@ -1,0 +1,89 @@
+---
+const COURSES = [
+  {
+    date: "2024",
+    title: "REACT",
+    company: "UDEMY",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusantium odio asperiores quod sed voluptas commodi veritatis, quidem est, quasi autem consequatur laboriosam amet illum inventore assumenda. Voluptates, ex at!",
+    link: "",
+  },
+  {
+    date: "2023",
+    title: "NODE.JS",
+    company: "PLATZI",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusantium odio asperiores quod sed voluptas commodi veritatis, quidem est, quasi autem consequatur laboriosam amet illum inventore assumenda. Voluptates, ex at!",
+    link: "",
+  },
+  {
+    date: "2021",
+    title: "HTML",
+    company: "Google Active",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusantium odio asperiores quod sed voluptas commodi veritatis, quidem est, quasi autem consequatur laboriosam amet illum inventore assumenda. Voluptates, ex at!",
+    link: "",
+  },
+];
+---
+
+<section
+  id="cursos"
+  data-section="cursos"
+  class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+>
+  <h2
+    class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"
+  >
+    <svg
+      class="size-8"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path
+        d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+      ></path>
+      <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
+      <path d="M12 12l0 .01"></path>
+      <path d="M3 13a20 20 0 0 0 18 0"></path>
+    </svg>
+    Cursos
+  </h2>
+  <ol class="relative mt-16">
+    {
+      COURSES.map((course) => (
+        <li class="">
+          <div class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
+            <div class="relative pb-12 md:col-span-2">
+              <div class="sticky top-0">
+                <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl">
+                  &bull;
+                </span>
+
+                <h3 class="text-xl font-bold text-yellow-400">
+                  {course.title}
+                </h3>
+                <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
+                  {course.company}
+                </h4>
+                <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">
+                  {course.date}
+                </time>
+              </div>
+            </div>
+            <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
+              {course.description}
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>

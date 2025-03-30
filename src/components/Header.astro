@@ -1,10 +1,19 @@
 ---
-
 const navItems = [
   {
     title: "Experiencia",
     label: "experiencia",
     url: "/#experiencia",
+  },
+  {
+    title: "Estudios",
+    label: "estudios",
+    url: "/#estudios",
+  },
+  {
+    title: "Cursos",
+    label: "cursos",
+    url: "/#cursos",
   },
   {
     title: "Proyectos",
@@ -21,7 +30,7 @@ const navItems = [
     label: "contacto",
     url: "mailto:ps4cristiantorr@gmail.com",
   },
-]
+];
 ---
 
 <header
@@ -41,52 +50,49 @@ const navItems = [
         </a>
       ))
     }
-    
   </nav>
 </header>
 
-
-
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
+              item.classList.add("text-blue-500");
             } else {
-              item.classList.remove("text-blue-500")
+              item.classList.remove("text-blue-500");
             }
-          })
+          });
         }
-      })
-    }
+      });
+    };
 
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    })
+    });
 
     sections.forEach((section) => {
-      observer.observe(section)
-    })
+      observer.observe(section);
+    });
 
     // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect()
+        observer.disconnect();
       } else {
         sections.forEach((section) => {
-          observer.observe(section)
-        })
+          observer.observe(section);
+        });
       }
-    }
-  })
+    };
+  });
 </script>
 
 <style>
@@ -97,23 +103,33 @@ const navItems = [
   }
 
   nav {
-  background-color: rgba(255, 255, 255, 0.5); /* bg-white/50 */
-}
+    background-color: rgba(255, 255, 255, 0.5); /* bg-white/50 */
+  }
 
-nav.dark {
-  background-color: rgba(31, 41, 55, 0.9); /* dark:bg-gray-800/90 (equivalente a rgba(31, 41, 55, 0.9)) */
-}
+  nav.dark {
+    background-color: rgba(
+      31,
+      41,
+      55,
+      0.9
+    ); /* dark:bg-gray-800/90 (equivalente a rgba(31, 41, 55, 0.9)) */
+  }
 
   @keyframes nav-shadown {
     0% {
-    background-color: rgba(255, 255, 255, 0); /* bg-white/0 */
-    background-color: rgba(31, 41, 55, 0); /* dark:bg-gray-800/0 (equivalente en RGB con opacidad 0) */
-  }
-  to {
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* shadow-lg */
-    border-radius: 0.375rem; /* ring-1 (equivalente al border-radius 0.375rem) */
-    backdrop-filter: blur(10px); /* backdrop-blur */
-    border-color: rgba(255, 255, 255, 0.1); /* ring-white/10 */
-  }
+      background-color: rgba(255, 255, 255, 0); /* bg-white/0 */
+      background-color: rgba(
+        31,
+        41,
+        55,
+        0
+      ); /* dark:bg-gray-800/0 (equivalente en RGB con opacidad 0) */
+    }
+    to {
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* shadow-lg */
+      border-radius: 0.375rem; /* ring-1 (equivalente al border-radius 0.375rem) */
+      backdrop-filter: blur(10px); /* backdrop-blur */
+      border-color: rgba(255, 255, 255, 0.1); /* ring-white/10 */
+    }
   }
 </style>
