@@ -1,6 +1,10 @@
 ---
 import NextJS from "./icons/NextJs.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import Wordpress from "./icons/Wordpress.astro";
+import AstroJs from "./icons/AstroJs.astro";
+import Php from "./icons/Php.astro";
+import Boostrap from "./icons/Boostrap.astro";
 
 const TAGS = {
   NEXT: {
@@ -9,27 +13,55 @@ const TAGS = {
     icon: NextJS,
   },
   TAILWIND: {
-    name: "Tailwind CSS",
+    name: "Tailwind",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
+  },
+  WORDPRESS: {
+    name: "Wordpress",
+    class: "bg-black text-white",
+    icon: Wordpress,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#003159] text-white",
+    icon: AstroJs,
+  },
+  PHP: {
+    name: "Php",
+    class: "bg-[#003159] text-white",
+    icon: Php,
+  },
+  BOOSTRAP: {
+    name: "Boostrap",
+    class: "bg-[#003159] text-white",
+    icon: Boostrap,
   },
 };
 const PROJECTS = [
   {
-    title: " Lorem ipsum, dolor sit amet",
+    title: "Pokemón móvile",
     description:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam a eos at obcaecati earum laboriosam officiis nihil veritatis architecto, ab vel ad sunt maiores vero officia temporibus aspernatur atque. Blanditiis.",
+      "Aplicación creada como aprendizaje sobre React Native, se desarrollo con Expo , tailwind y react-native-CLI",
     link: "https://svgl.vercel.app/",
     github: "https://github.com/pheralb/svgl",
-    image: "https://placehold.co/500x300",
+    image: "react-native-pokemon.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: " Lorem ipsum, dolor sit amet",
+    title: "Sitio web Latin beer",
     description:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam a eos at obcaecati earum laboriosam officiis nihil veritatis architecto, ab vel ad sunt maiores vero officia temporibus aspernatur atque. Blanditiis.",
-    link: "https://adventjs.dev",
-    image: "https://placehold.co/500x300",
+      "Sitio web a la medida programado en PHP con el CMS Wordpress y el tema Bones, se utilizo el plugin ACF para la gestión de los campos de contenido.",
+    link: "https://latinbeer.au/",
+    image: "latinbeer.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Dev Book",
+    description:
+      "Aplicación creada como aprendizaje sobre Astro JS, se desarrollo con tailwind y se subio a Vercel mediante integración con GitHub.",
+    link: "https://astro-5-dev-book.vercel.app/",
+    image: "devbook.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
 ];
@@ -68,7 +100,7 @@ const PROJECTS = [
             <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
               <img
                 alt="Recién llegado vs 5 años en Nueva Zelanda"
-                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                class="object-cover object-top w-full h-30 transition duration-500 sm:h-70 md:scale-110 md:group-hover:scale-105 rounded-xl"
                 loading="lazy"
                 src={image}
               />
@@ -104,7 +136,6 @@ const PROJECTS = [
                     role="link"
                     class="inline-flex bg-gray-100 text-gray-800 border-gray-300 items-center justify-center gap-2 px-3 py-2 space-x-2 text-base transition dark:text-white dark:bg-gray-800 border dark:border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
                   >
-                    {" "}
                     <svg
                       class="size-6"
                       xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +161,6 @@ const PROJECTS = [
                     role="link"
                     class="inline-flex bg-gray-100 text-gray-800 border-gray-300 items-center justify-center gap-2 px-3 py-2 space-x-2 text-base transition dark:text-white dark:bg-gray-800 border dark:border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
                   >
-                    {" "}
                     <svg
                       class="size-6"
                       xmlns="http://www.w3.org/2000/svg"
