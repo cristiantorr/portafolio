@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
+
 const navItems = [
   {
     title: "Experiencia",
@@ -57,7 +59,7 @@ const navItems = [
   document.addEventListener("astro:page-load", () => {
     const sections = document.querySelectorAll("section");
     const navItems = document.querySelectorAll("header nav a");
-
+    alert(0);
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

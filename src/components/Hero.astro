@@ -1,79 +1,6 @@
 ---
-import NextJS from "./icons/NextJs.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import Wordpress from "./icons/Wordpress.astro";
-import AstroJs from "./icons/AstroJs.astro";
-import Php from "./icons/Php.astro";
-import Boostrap from "./icons/Boostrap.astro";
-import Javascript from "./icons/Javascript.astro";
-import Json from "./icons/Json.astro";
-import Css from "./icons/Css.astro";
-import Html from "./icons/Html.astro";
-import React from "./icons/React.astro";
-import Vercel from "./icons/Vercel.astro";
-import Github from "./icons/Github.astro";
-
-const TAGS = {
-  HTML: {
-    name: "Html",
-    class: "bg-[#003159] text-white",
-    icon: Html,
-  },
-
-  JS: {
-    name: "Js",
-    class: "bg-[#003159] text-white",
-    icon: Javascript,
-  },
-  Css: {
-    name: "Css",
-    class: "bg-[#003159] text-white",
-    icon: Css,
-  },
-  BOOSTRAP: {
-    name: "Boostrap",
-    class: "bg-[#003159] text-white",
-    icon: Boostrap,
-  },
-  TAILWIND: {
-    name: "Tailwind",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-  PHP: {
-    name: "Php",
-    class: "bg-[#003159] text-white",
-    icon: Php,
-  },
-  WORDPRESS: {
-    name: "Wordpress",
-    class: "bg-black text-white",
-    icon: Wordpress,
-  },
-  REACT: {
-    name: "React",
-    class: "bg-[#003159] text-white",
-    icon: React,
-  },
-
-  ASTRO: {
-    name: "Astro",
-    class: "bg-[#003159] text-white",
-    icon: AstroJs,
-  },
-  VERCEL: {
-    name: "Vercel",
-    class: "bg-[#003159] text-white",
-    icon: Vercel,
-  },
-  GITHUB: {
-    name: "Github",
-    class: "bg-[#003159] text-white",
-    icon: Github,
-  },
-};
-
-const tagsArray = Object.entries(TAGS);
+import { TAGS } from "./Tags.astro";
+const tags = Object.entries(TAGS);
 ---
 
 <section
@@ -131,13 +58,13 @@ const tagsArray = Object.entries(TAGS);
     <div class="flex mt-2">
       <h2 class="mr-2">
         <span class="text-yellow-200">HABILIDADES:</span>
-        <small class="text-gray-400"
+        <br /><small class="text-gray-400"
           >Habilidades obtenidas en el proceso de aprendizaje.</small
         >
       </h2>
       <ul class="flex flex-wrap gap-x-2">
         {
-          tagsArray.map(([key, tag]) => (
+          tags.map(([key, tag]) => (
             <li
               class="
         mb-2"
@@ -182,8 +109,7 @@ const tagsArray = Object.entries(TAGS);
         Contáctame
       </a>
       <a
-        href="https://linkedin.com/in/cristiantorr
-"
+        href="https://linkedin.com/in/cristiantorr"
         target="_blank"
         rel="noopener noreferrer"
         role="link"
