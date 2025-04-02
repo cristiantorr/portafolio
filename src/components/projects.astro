@@ -4,30 +4,111 @@ import { TAGS } from "./Tags.astro";
 const PROJECTS = [
   {
     title: "Pokemón móvile",
+
     description:
-      "Aplicación creada como aprendizaje sobre React Native, se desarrollo con Expo , tailwind y react-native-CLI",
+      "Aplicación creada consumiendo API pokemon, se realizo como aprendizaje sobre React Native, se desarrollo con Expo , tailwind y react-native-CLI",
 
     github: "https://github.com/cristiantorr/React-native-pokemon",
-    image: "react-native-pokemon.webp",
+    image: "/proyectos/react-native-pokemon.webp",
     tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.GITHUB],
   },
-  {
-    title: "Sitio web Latin beer",
-    description:
-      "Sitio web a la medida programado en PHP con el CMS Wordpress y el tema Bones, se utilizo el plugin ACF para la gestión de los campos de contenido.",
-    link: "https://latinbeer.au/",
-    image: "latinbeer.webp",
-    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
-  },
+
   {
     title: "Dev Book",
     description:
-      "Aplicación creada como aprendizaje sobre Astro JS, se desarrollo con tailwind y se subio a Vercel mediante integración con GitHub.",
+      "Aplicación creada como aprendizaje sobre Astro JS, se desarrollo con tailwind y se subio a Vercel mediante integración con GitHub. Curso con midudev.",
     link: "https://astro-5-dev-book.vercel.app/",
     github: "https://github.com/cristiantorr/astro-5-dev-book",
 
-    image: "devbook.webp",
+    image: "/proyectos/devbook.webp",
     tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.GITHUB],
+  },
+  {
+    title: "Pokedex",
+    description:
+      "Aplicación creada consumiendo API pokemon, se realizo como aprendizaje de React, donde se pueden buscar cada personaje y ver su información.",
+    github:
+      "https://github.com/cristiantorr/pokedex--buscador-python/blob/main/pokedex.py",
+    image: "/proyectos/api-pokemon-ract.webp",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.GITHUB],
+  },
+
+  {
+    title: "Plataforma de accesos",
+    description:
+      "Aplicación creada para la gestion de proyectos nuevos y cotizaciones, se desarrollo con Laravel.",
+
+    github: "https://github.com/cristiantorr/access-plataform-laravel",
+
+    image: "/proyectos/accesos.webp",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.GITHUB],
+  },
+
+  {
+    title: "Sitio web Latin beer",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un diseñador front-end para la maquetación, mientras me encargué de la programación y la implementación en WordPress con el tema Bones y el plugin ACF para una gestión flexible de los contenidos.",
+    link: "https://latinbeer.au/",
+    image: "/proyectos/latinbeer.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+
+  {
+    title: "Sitio web Raquel Munera",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un diseñador front-end para la maquetación, mientras me encargué de la programación y la implementación en WordPress con el tema Bones y el plugin ACF para una gestión flexible de los contenidos.",
+    link: "https://raquelmunera.art/",
+    image: "/proyectos/raquelmunera.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+  {
+    title: "Sitio web Logística Inteligente",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un diseñador front-end para la maquetación, mientras me encargué de la programación y la implementación en WordPress con el tema Bones y el plugin ACF para una gestión flexible de los contenidos.",
+    link: "https://logisticainteligenteslt.com/",
+    image: "/proyectos/logisticainteligente.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+  {
+    title: "Sitio web Mapper",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un diseñador front-end para la maquetación, mientras me encargué de la programación y la implementación en WordPress con el tema Bones y el plugin ACF para una gestión flexible de los contenidos.",
+    link: "https://maper.solumovil.com/maquinaria/",
+    image: "/proyectos/mapper.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+
+  {
+    title: "Sitio web Easy Logística",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un diseñador front-end para la maquetación, mientras me encargué de la programación y la implementación en WordPress con el tema Bones y el plugin ACF para una gestión flexible de los contenidos.",
+    link: "https://easysas.com.co/",
+    image: "/proyectos/easylogistica.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+  {
+    title: "Sitio web TRESPALACIOS",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un diseñador front-end para la maquetación, mientras me encargué de la programación y la implementación en WordPress con el tema Bones y el plugin ACF para una gestión flexible de los contenidos.",
+    link: "https://trespalacios.co/",
+    image: "/proyectos/trespalacios.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+  {
+    title: "Sitio web BLOG Imusa",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un equipo multidisciplinario, utilizando el plugin ACF para una gestión flexible y fácil de los contenidos",
+    link: "https://blog.imusa.com.co/",
+    image: "/proyectos/imusa.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
+  },
+  {
+    title: "Sitio web Saltín Nóel",
+    description:
+      "Desarrollo de un sitio web personalizado en colaboración con un equipo multidisciplinario, utilizando el plugin ACF para una gestión flexible y fácil de los contenidos",
+    link: "https://saltinnoel.com.co/",
+    image: "/proyectos/saltinnoel.webp",
+    tags: [TAGS.PHP, TAGS.WORDPRESS, TAGS.GITHUB, TAGS.BOOSTRAP],
   },
 ];
 ---

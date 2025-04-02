@@ -88,6 +88,31 @@ const COURSES = [
     ],
   },
   {
+    tag: PLATFORMS.MICROSOFT,
+    certifications: [
+      {
+        name: "Accesibilidad Web",
+        link: "https://learn.microsoft.com/api/achievements/share/es-mx/CristianAlonsoTorresPatio-4482/FMRV88WX?sharingId=D0CFFD426A3825F3",
+      },
+      {
+        name: "Estilos Css",
+        link: "https://learn.microsoft.com/api/achievements/share/es-mx/CristianAlonsoTorresPatio-4482/XQAMWR8Y?sharingId=D0CFFD426A3825F3",
+      },
+      {
+        name: "Página Web",
+        link: "https://learn.microsoft.com/api/achievements/share/es-mx/CristianAlonsoTorresPatio-4482/XQAMG5GY?sharingId=D0CFFD426A3825F3",
+      },
+      {
+        name: "Tipos de servicios en la nube",
+        link: "https://learn.microsoft.com/api/achievements/share/es-mx/CristianAlonsoTorresPatio-4482/4J6YWYVK?sharingId=D0CFFD426A3825F3",
+      },
+      {
+        name: "Informatica en la nube",
+        link: "https://learn.microsoft.com/api/achievements/share/es-mx/CristianAlonsoTorresPatio-4482/FAMCF4PX?sharingId=D0CFFD426A3825F3",
+      },
+    ],
+  },
+  {
     tag: PLATFORMS.SOLOLEARN,
     certifications: [
       {
@@ -105,6 +130,15 @@ const COURSES = [
     ],
   },
   {
+    tag: PLATFORMS.STYDE,
+    certifications: [
+      {
+        name: "Laravel 5.8",
+        link: "https://github.com/cristiantorr/study-laravel",
+      },
+    ],
+  },
+  {
     tag: PLATFORMS.CODIGOFACILITO,
     certifications: [
       {
@@ -113,9 +147,14 @@ const COURSES = [
       },
     ],
   },
+
   {
     tag: PLATFORMS.MIDUDEV,
     certifications: [
+      {
+        name: "Curso Astro : Dev Book",
+        link: "https://github.com/cristiantorr/astro-5-dev-book",
+      },
       {
         name: "Cursos Youtube",
         link: "https://www.youtube.com/midudev",
@@ -162,7 +201,7 @@ const COURSES = [
     >Estas son algunas de las plataformas que he utilizado para aprender y
     mejorar mi conocimiento.</span
   >
-  <ol class="relative mt-16">
+  <ol class="relative mt-16 mb-16">
     {
       COURSES.map(({ certifications, tag }) => (
         <li class="">
@@ -220,7 +259,7 @@ const COURSES = [
       ))
     }
   </ol>
-  <div></div>
+
   <div class="flex justify-center gap-4">
     <a
       href="https://www.linkedin.com/in/cristiantorr/details/certifications/"
