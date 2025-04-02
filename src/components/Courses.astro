@@ -1,28 +1,130 @@
 ---
+import { PLATFORMS } from "./Tags.astro";
+
 const COURSES = [
   {
-    date: "2024",
-    title: "REACT",
-    company: "UDEMY",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusantium odio asperiores quod sed voluptas commodi veritatis, quidem est, quasi autem consequatur laboriosam amet illum inventore assumenda. Voluptates, ex at!",
-    link: "",
+    tag: PLATFORMS.UDEMY,
+    certifications: [
+      {
+        name: "Certificación REACT Proyectos",
+        link: "https://www.udemy.com/certificate/UC-2149cffa-7c89-42b9-a2cf-a5310f754b0e/",
+      },
+      {
+        name: "Proyecto React Pokedex",
+        link: "https://github.com/cristiantorr/Pokedex-en-react",
+      },
+      {
+        name: "Proyecto React juego de frutas",
+        link: "https://github.com/cristiantorr/Emparejamiento-frutas-react",
+      },
+      {
+        name: "Certificación Crud Ionic 3 y Firebase",
+        link: "https://www.udemy.com/certificate/UC-42EJ9EEZ/",
+      },
+    ],
   },
   {
-    date: "2023",
-    title: "NODE.JS",
-    company: "PLATZI",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusantium odio asperiores quod sed voluptas commodi veritatis, quidem est, quasi autem consequatur laboriosam amet illum inventore assumenda. Voluptates, ex at!",
-    link: "",
+    tag: PLATFORMS.PLATZI,
+    certifications: [
+      {
+        name: "Curso profesional de javascript",
+        link: "https://platzi.com/p/khristian1007/curso/1642-course/diploma/detalle/",
+      },
+      {
+        name: "Curso estructura de datos con Javascript",
+        link: "https://platzi.com/p/khristian1007/curso/2156-estructuras-datos/diploma/detalle/",
+      },
+      {
+        name: "Curso Fundamentos de Node.js",
+        link: "https://platzi.com/p/khristian1007/curso/1759-course/diploma/detalle/",
+      },
+      {
+        name: "Node.js: Api rest con express",
+        link: "https://platzi.com/p/khristian1007/curso/2485-backend-nodejs/diploma/detalle/",
+      },
+      {
+        name: "Node.js: MongoDB y websockets",
+        link: "https://platzi.com/p/khristian1007/curso/1689-course/diploma/detalle/",
+      },
+      {
+        name: "Curso profesional de javascript",
+        link: "https://platzi.com/p/khristian1007/curso/1642-course/diploma/detalle/",
+      },
+      {
+        name: "Curso introducción al Backend",
+        link: "https://platzi.com/p/khristian1007/curso/2508-course/diploma/detalle/",
+      },
+      {
+        name: "Curso Terminal y línea de comandos",
+        link: "https://platzi.com/p/khristian1007/curso/2508-course/diploma/detalle/",
+      },
+      {
+        name: "Curso de Prework: Entorno windows",
+        link: "https://platzi.com/p/khristian1007/curso/2508-course/diploma/detalle/",
+      },
+    ],
   },
   {
-    date: "2021",
-    title: "HTML",
-    company: "Google Active",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, accusantium odio asperiores quod sed voluptas commodi veritatis, quidem est, quasi autem consequatur laboriosam amet illum inventore assumenda. Voluptates, ex at!",
-    link: "",
+    tag: PLATFORMS.GOOGLE,
+    certifications: [
+      {
+        name: "Certificación App Móviles",
+        link: "/certificados/certificado-app-moviles.pdf",
+      },
+      {
+        name: "Certificación desarrollo web Parte 1",
+        link: "/certificados/certificado-desarrolloweb-part1.pdf",
+      },
+      {
+        name: "Certificación desarrollo web Parte 2",
+        link: "/certificados/certificado-web-part2.pdf",
+      },
+      {
+        name: "Certificación Marketing digital",
+        link: "/certificados/certificado-curso-marketing.pdf",
+      },
+    ],
+  },
+  {
+    tag: PLATFORMS.SOLOLEARN,
+    certifications: [
+      {
+        name: "Certificación HTML",
+        link: "/certificados/html.png",
+      },
+      {
+        name: "Certificación Javascript",
+        link: "/certificados/javascript.jpg",
+      },
+      {
+        name: "Certificación SQL",
+        link: "/certificados/jsql.jpg",
+      },
+    ],
+  },
+  {
+    tag: PLATFORMS.CODIGOFACILITO,
+    certifications: [
+      {
+        name: "Reto python",
+        link: "/certificados/retopython.pdf",
+      },
+    ],
+  },
+  {
+    tag: PLATFORMS.MIDUDEV,
+    certifications: [
+      {
+        name: "Cursos Youtube",
+        link: "https://www.youtube.com/midudev",
+      },
+      {
+        name: "Cursos Web",
+        link: "https://midu.dev/",
+      },
+    ],
   },
 ];
 ---
@@ -33,7 +135,7 @@ const COURSES = [
   class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
 >
   <h2
-    class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"
+    class="flex items-start mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"
   >
     <svg
       class="size-8"
@@ -54,36 +156,135 @@ const COURSES = [
       <path d="M12 12l0 .01"></path>
       <path d="M3 13a20 20 0 0 0 18 0"></path>
     </svg>
-    Cursos
+    Cursos Y Certificaciones:
   </h2>
+  <span class="text-gray-700 dark:text-gray-400"
+    >Estas son algunas de las plataformas que he utilizado para aprender y
+    mejorar mi conocimiento.</span
+  >
   <ol class="relative mt-16">
     {
-      COURSES.map((course) => (
+      COURSES.map(({ certifications, tag }) => (
         <li class="">
-          <div class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
-            <div class="relative pb-12 md:col-span-2">
+          <div class="relative mx-12 pb-5 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
+            <div class="relative pb-5 md:col-span-2">
               <div class="sticky top-0">
                 <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl">
                   &bull;
                 </span>
-
-                <h3 class="text-xl font-bold text-yellow-400">
-                  {course.title}
-                </h3>
-                <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
-                  {course.company}
-                </h4>
-                <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">
-                  {course.date}
-                </time>
+                <span class="flex m-auto h-18 w-50 flex-col">
+                  <tag.icon />
+                  <h2 class="p-0 m-0 text-lg text-gray-600/80 dark:text-white/80 text-center">
+                    {tag.name}
+                  </h2>
+                </span>
               </div>
             </div>
+
             <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-              {course.description}
+              {certifications && (
+                <ul class="flex flex-row flex-wrap gap-4 mb-2 gap-x-2">
+                  {certifications.map(({ name, link }) => (
+                    <li>
+                      <a
+                        target="_blank"
+                        href={link}
+                        arial-role={link ? "link" : ""}
+                        rel={link ? "noopener noreferrer" : ""}
+                        class="inline-flex bg-gray-100 text-gray-800 border-gray-300 items-center justify-center gap-2 px-3 py-2 space-x-2 text-base transition dark:text-white dark:bg-gray-800 border dark:border-gray-600 focus-visible:ring-yellow-500/80 text-sm hover:bg-gray-800 hover:border-gray-900 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                      >
+                        <svg
+                          class="size-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                        </svg>
+                        {name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </li>
       ))
     }
   </ol>
+  <div></div>
+  <div class="flex justify-center gap-4">
+    <a
+      href="https://www.linkedin.com/in/cristiantorr/details/certifications/"
+      target="_blank"
+      rel="noopener noreferrer"
+      role="link"
+      class="inline-flex items-center justify-center gap-2 px-4 py-1 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black text-yellow-400"
+    >
+      <svg
+        class="size-4"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"
+        ></path>
+        <path d="M8 11l0 5"></path>
+        <path d="M8 8l0 .01"></path>
+        <path d="M12 16l0 -5"></path>
+        <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+      </svg>
+      Ver todas las certificaciones
+    </a>
+    <a
+      href="https://www.linkedin.com/in/cristiantorr/details/certifications/"
+      target="_blank"
+      rel="noopener noreferrer"
+      role="link"
+      class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 text-yellow-400 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+    >
+      <svg
+        class="size-6"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        data-astro-source-file="C:/Users/User/Desktop/proyectos-personales/portafolio/src/components/projects.astro"
+        data-astro-source-loc="115:22"
+      >
+        <path
+          stroke="none"
+          d="M0 0h24v24H0z"
+          fill="none"
+          data-astro-source-file="C:/Users/User/Desktop/proyectos-personales/portafolio/src/components/projects.astro"
+          data-astro-source-loc="116:24"></path>
+        <path
+          d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+          data-astro-source-file="C:/Users/User/Desktop/proyectos-personales/portafolio/src/components/projects.astro"
+          data-astro-source-loc="117:24"></path>
+      </svg>
+      Ver mi repositorio github
+    </a>
+  </div>
 </section>
