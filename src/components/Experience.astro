@@ -5,7 +5,7 @@ const EXPERIENCE = [
     title: "Desarrollador Senior",
     company: "SM Digital S.A.S",
     description:
-      "Desarrollador de sitios web personalizados con el CMS WordPress, frameworks como Laravel y React, y las tecnologías requeridas, cumpliendo con los lineamientos y procedimientos del área de desarrollo, capacitando al equipo en nuevas tecnologías para mejorar la calidad de los productos, y gestionando la conexión y consumo de servicios web mediante API Rest.",
+      "<ul style='list-style: initial;'><li>Desarrollador de sitios web personalizados con el CMS WordPress, CSS, JS, frameworks como Laravel y React, y las tecnologías requeridas.</li><li>Capacitar al equipo en nuevas tecnologías para mejorar la calidad de los productos</li><li>Gestionar la conexión y consumo de servicios web mediante API RestFull.</li><li>Realizar mantenimiento de los sitios (actualizaciones y solución de errores).</li><li>Subir contenido a los sitios web en desarrollo.</li><li>Implementar nuevas internas en sitios web ya implementados.</li><li>Implementar blogs (maqueta y programación).</li><li>Desarrollar módulos para CMS.</li><li>Implementar plugins y librerías para optimizar y mejorar el rendimiento de los sitios web.</li><li>Construir landings page.</li><li>Realizar informes de estadísticas de base de datos (datos de usuarios).</li><li>Realizar el reporte de horas en la herramienta dispuesta por la agencia para este propósito.</li><li>Cumplir con los lineamientos, políticas y/o procedimientos relacionados con gestión documental.</li><li>Implementar ajustes de diseño o funcionales en sitios web.</li><li>Cumplir con los lineamientos, políticas y/o procedimientos definidos para el área de desarrollo del cargo.</li></ul>",
     link: "https://smdigital.com.co/",
   },
   {
@@ -13,7 +13,7 @@ const EXPERIENCE = [
     title: "Ensamblador de Protoboards",
     company: "Alcancía telefonica",
     description:
-      "Ensamblar todos los componentes necesarios en las protoboards de telefonía y armar por completo el teléfono para su correcto funcionamiento..",
+      "<ul style='list-style: initial;'><li>Ensamblar todos los componentes necesarios en las protoboards de telefonía</li><li>Construír por completo el teléfono con sus componentes para su correcto funcionamiento.</li><li>Reparar y actualizar los componentes de la protoboards, para telefonos con mucho uso.</li><li>Entregarle al cliente el teléfono con los componentes ensamblados.</li></ul>",
     link: "",
   },
 ];
@@ -71,7 +71,7 @@ const EXPERIENCE = [
               </div>
             </div>
             <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-              {experience.description}
+              <p set:html={experience.description} />
               {experience.link && (
                 <a
                   href={experience.link}
