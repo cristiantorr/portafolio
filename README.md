@@ -4,8 +4,6 @@ Portafolio personal moderno y responsivo desarrollado con **Astro** y **Tailwind
 
 ---
 
-## 📋 Tabla de Contenidos
-
 - [Descripción](#descripción)
 - [Características](#características)
 - [Tecnologías](#tecnologías)
