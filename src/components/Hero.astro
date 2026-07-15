@@ -11,8 +11,8 @@ const tags = Object.entries(TAGS);
   <div class="max-w-xl">
     <div class="flex gap-4 mb-4">
       <img
-        class="rounded-full object-top  object-cover  shadow-lg size-35"
-        src="/myphoto.webp"
+        class="rounded-full object-top  object-cover  shadow-lg size-35 ring-2 ring-yellow-400/60 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-950"
+        src="/mypicture.webp"
         alt="Cristian Torres"
       />
       <a
@@ -40,7 +40,9 @@ const tags = Object.entries(TAGS);
     <h1
       class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
     >
-      Hola, soy Cristian Torres
+      Hola, soy <span class=" bg-[linear-gradient(135deg,#f59e0b_10%,#f97316_90%)]
+    bg-clip-text
+    text-transparent">Cristian Torres</span>
     </h1>
     <p
       class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
