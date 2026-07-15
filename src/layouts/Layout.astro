@@ -2,28 +2,103 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import { ViewTransitions } from "astro:transitions";
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  description,
+  title,
+  image = "/porfolio.webp",
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const siteUrl = "https://porfolio.dev";
+const ogImage = new URL(image, siteUrl).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Cristian Alonso Torres",
+  url: siteUrl,
+  sameAs: [
+    "https://linkedin.com/in/cristiantorr",
+    "https://github.com/cristiantorr",
+  ],
+  jobTitle: "Full Stack Developer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Freelance",
+  },
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Cristian Alonso Torres" />
     <meta name="generator" content={Astro.generator} />
-    <title>Portafolio - Cristian Torres</title>
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Cristian Torres · Porfolio" />
+
+    <!-- Twitter / X -->
+    
+
+    <!-- JSON-LD structured data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd)}
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="darkreader-lock" />
+    <ViewTransitions />
   </head>
-  <body>
+   <body class="relative text-black dark:text-white">
+    <div
+      class="fixed inset-0 z-[-2] bg-gray-50 dark:bg-gray-950
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(251,191,36,0.14),rgba(255,255,255,0.9))]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(251,191,36,0.08),rgba(0,0,0,0))]"
+    >
+    </div>
+    <!-- Grain texture overlay for tactile depth -->
+    <div
+      class="pointer-events-none fixed inset-0 z-[-1] opacity-[0.035] dark:opacity-[0.05]"
+      style="background-image: url('/noise.svg'); background-size: 200px 200px;"
+      aria-hidden="true"
+    >
+    </div>
     <Header />
+    
     <slot />
     <Footer />
   </body>
 </html>
 
 <style is:global>
-  :root {
+  /* :root {
     color-scheme: light dark;
-  }
+  } */
   html {
     font-family: "Onest Variable", system-ui, sans-serif;
     scroll-behavior: smooth;
@@ -31,13 +106,13 @@ import Header from "../components/Header.astro";
     margin: 0;
   }
 
-  body {
+/*   body {
     color: rgba(17, 17, 17, 0.9);
     display: grid;
-    grid-template-rows: 1fr auto; /* El contenido ocupa todo el espacio disponible y el footer tiene un tamaño automático */
+    grid-template-rows: 1fr auto; 
     height: 100%;
     background: linear-gradient(90deg, rgb(40 43 56) 0%, rgb(3, 7, 18) 100%);
-  }
+  } */
 
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -45,11 +120,11 @@ import Header from "../components/Header.astro";
     }
   }
 
-  @media (prefers-color-scheme: dark) {
+/*   @media (prefers-color-scheme: dark) {
     body {
       color: rgba(255, 255, 255, 0.9);
     }
-  }
+  } */
 
   #header-nav {
     animation: blur linear both 0.5s;
