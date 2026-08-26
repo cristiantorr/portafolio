@@ -7,11 +7,6 @@ const profile = require("../data/cristian.json");
 let model;
 // Instanciamos el modelo de Ollama local
 if (process.env.NODE_ENV === "production") {
-  console.log(
-    process.env.NODE_ENV,
-    process.env.GEMINI_MODEL,
-    process.env.GEMINI_API_KEY,
-  );
   model = new ChatGoogleGenerativeAI({
     model: process.env.GEMINI_MODEL || "gemini-3.7-flash",
     apiKey: process.env.GEMINI_API_KEY || "", // Asegúrate de configurar la variable de entorno GEMINI_API_KEY en producción
