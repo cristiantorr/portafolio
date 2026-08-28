@@ -1,6 +1,7 @@
 // @ts-check
 
 import { defineConfig } from "astro/config";
+
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 /* import robotsTxt from "astro-robots-txt"
@@ -21,5 +22,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  adapter: vercel()
+  adapter: vercel(),
 });
