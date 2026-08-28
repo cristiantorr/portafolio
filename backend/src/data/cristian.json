@@ -1,7 +1,10 @@
 {
   "informacion_personal": {
-    "nombre": "Cristian Alonso Torres Patiño",
-    "apodo": "Torres",
+    "primer_nombre": "Cristian",
+    "segundo_nombre": "Alonso",
+    "primer_apellido": "Torres",
+    "segundo_apellido": "Patiño",
+    "nombre_completo": "Cristian Alonso Torres Patiño",
     "titulo_profesional": "Tecnólogo en Análisis y Desarrollo de Sistemas de Información",
     "especialidades": [
       "Desarrollador Web & CMS",
@@ -21,7 +24,7 @@
     }
   },
   "sobre_mi": {
-    "resumen_personal": "Me llamo Cristian Torres, aunque algunas personas me llaman 'Torres'. Empecé a conocer el mundo de la programación con lenguajes de marcado HTML, CSS y JavaScript cuando tenía 14 años.",
+    "resumen_personal": "Me llamo Cristian Torres, aunque algunas personas me llaman 'Torres'. Empecé a conocer el mundo de la programación con lenguajes de marcado HTML, CSS y JavaScript cuando tenía 15 años.",
     "rasgos_de_personalidad": [
       "Proactivo",
       "Autodidacta por naturaleza",
@@ -39,11 +42,10 @@
       "periodo": "Mayo 2024 - Mayo 2025",
       "ubicacion": "Remoto",
       "responsabilidades_y_logros": [
-        "Desarrollo e Integración: Diseño y desarrollo de aplicaciones web y soluciones de base de datos escalables y de alto rendimiento utilizando WordPress.",
-        "Refactorización y Rendimiento: Refactoricé aplicaciones en AWS y corregí cuellos de botella en MySQL/PHP, elevando el rendimiento y la seguridad del sistema hasta un 60%.",
-        "Frontend y APIs REST: Diseñé e integré interfaces escalables en React conectadas a APIs REST, reduciendo tiempos de respuesta.",
-        "Integraciones Avanzadas: Conexión con Salesforce CRM, Salesforce Marketing Cloud, configuradores de productos 3D/AR y Sketchfab.",
-        "Liderazgo Técnico y Scrum: Rol de Scrum Master y líder técnico en proyectos web y soluciones personalizadas en aplicaciones Unreal y Unity."
+        "Optimización y Rendimiento: Refactoricé aplicaciones en AWS y corregí cuellos de botella en MySQL/PHP, elevando el rendimiento y la seguridad del sistema hasta un 60%.",
+        "Desarrollo Frontend y APIs: Diseñé e integré interfaces escalables en React conectadas a APIs REST, reduciendo tiempos de respuesta y asegurando alta disponibilidad.",
+        "Implementación SEO: Implementé SEO performance, Search Console y Core Web Vitals, mejorando la visibilidad y el posicionamiento orgánico de los sitios web.",
+        "Integraciones Avanzadas: Conexión con Salesforce CRM, Salesforce Marketing Cloud, configuradores de productos 3D/AR y Sketchfab."
       ],
       "tecnologias_utilizadas": [
         "React",
@@ -63,9 +65,9 @@
       "periodo": "Octubre 2014 - Noviembre 2024",
       "ubicacion": "Medellín, Colombia",
       "responsabilidades_y_logros": [
-        "Desarrollo a Medida: Creación de plugins propios en PHP y arquitecturas modulares con ACF PRO para sitios web a la medida en WordPress.",
-        "SEO y Rendimiento Web: Diagnóstico y optimización de parámetros de Core Web Vitals y renderizado, mejorando el posicionamiento orgánico y reduciendo tiempos de carga.",
-        "Integración de Sistemas: Conexión con servicios de terceros (CRMs y pasarelas de pago) mediante consumo de APIs REST y SOAP.",
+        "Desarrollo a Medida: Creación de plugins propios en PHP y arquitecturas modulares con ACF PRO para sitios web a la medida en WordPress, reduciendo el tiempo de carga del sitio en un 20%.",
+        "SEO y Rendimiento Web: Diagnóstico y optimización de parámetros de Core Web Vitals y renderizado, mejorando el posicionamiento orgánico y la conversión de landings.",
+        "Integración de Sistemas: Conexión con servicios de terceros (CRMs y pasarelas de pago) mediante consumo de APIs REST y SOAP, asegurando un flujo de datos continuo.",
         "Desarrollo para Marcas Grandes: Creación de sitios web y blogs para marcas de Nutresa (Saltín Noel, Imusa, Colcafé, etc.)."
       ],
       "tecnologias_utilizadas": [
@@ -73,11 +75,11 @@
         "WordPress",
         "Custom Plugins",
         "ACF PRO",
-        "Laravel",
         "React",
         "APIs REST",
         "APIs SOAP",
-        "Core Web Vitals"
+        "Core Web Vitals",
+        "WooCommerce"
       ]
     },
     {
@@ -87,57 +89,123 @@
       "ubicacion": "Medellín, Colombia",
       "responsabilidades_y_logros": [
         "Ensamble y reparación de componentes electrónicos en protoboards de telefonía para el correcto funcionamiento de teléfonos públicos/alcancía."
-      ]
+      ],
+      "tecnologias_utilizadas": ["Electrónica Básica", "Protoboards"]
     }
   ],
   "proyectos": [
     {
       "nombre": "Losani Homes",
+      "es_destacado": true,
       "tecnologias": [
         "PHP",
         "WordPress",
         "Tailwind CSS",
         "Salesforce",
-        "ACF PRO"
+        "ACF PRO",
+        "HTML",
+        "CSS",
+        "JavaScript"
       ],
-      "descripcion": "Sitio web inmobiliario creado con WordPress, Tailwind CSS, integración con Salesforce CRM y ACF PRO."
+      "descripcion": "Desarrollo de plataforma inmobiliaria custom en WordPress utilizando Tailwind CSS y ACF Pro. El proyecto incluyó la arquitectura de un buscador avanzado con filtrado dinámico de proyectos y la integración vía API REST con Salesforce CRM para automatizar el flujo de captura de clientes y leads de la empresa.",
+      "link": "https://www.losanihomes.com/"
+    },
+    {
+      "nombre": "Rejiplas",
+      "es_destacado": true,
+      "tecnologias": [
+        "PHP",
+        "WordPress",
+        "WooCommerce",
+        "ACF PRO",
+        "Bootstrap",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "descripcion": "Desarrollo e implementación de la plataforma de comercio electrónico para Rejiplas sobre WordPress y WooCommerce. El proyecto abarcó desde la maquetación UI personalizada hasta la optimización del embudo de ventas, integración de pasarelas de pago locales/internacionales y sincronización de inventario, garantizando un rendimiento ágil y alta usabilidad responsive.",
+      "link": "https://rejiplas.com"
     },
     {
       "nombre": "Canvas Hill",
+      "es_destacado": false,
       "tecnologias": ["PHP", "WordPress", "Lenis", "GSAP"],
-      "descripcion": "Sitio web desarrollado en WordPress utilizando librerías de animación e interacción avanzada como Lenis y GSAP."
+      "descripcion": "Desarrollo e implementación ágil de sitio web completo a partir de una librería de componentes modulares, alineando la dirección de arte UI con los requerimientos funcionales del cliente. El proyecto se desarrolló en WordPress, integrando animaciones avanzadas y transiciones fluidas mediante el uso de las librerías Lenis y GSAP, para ofrecer una experiencia de usuario atractiva y dinámica.",
+      "link": "https://canvashill.ca/"
     },
     {
       "nombre": "Inmobiliaria Colviva + API",
+      "es_destacado": false,
       "tecnologias": [
         "PHP",
         "WordPress",
         "WooCommerce",
         "ACF",
         "Bootstrap",
-        "API REST (Softin)"
+        "API REST (Softin)",
+        "HTML",
+        "CSS",
+        "JavaScript"
       ],
-      "descripcion": "Desarrollo web a la medida integrado con la API REST de Softin para la presentación dinámica de proyectos inmobiliarios, WooCommerce y ACF."
+      "descripcion": "Desarrollo web a la medida integrado con la API REST de Softin para la presentación dinámica de proyectos inmobiliarios y la gestión de leads de clientes potenciales. El proyecto se implementó en WordPress, priorizando una arquitectura ligera, maquetación responsive y optimización de velocidad de carga para mejorar la experiencia del usuario.",
+      "link": "https://www.grupocolviva.com/"
     },
     {
-      "nombre": "Dev Book",
-      "tecnologias": ["Astro", "React", "Tailwind CSS", "Vercel"],
-      "descripcion": "Aplicación web creada como aprendizaje e implementación de Astro JS y Tailwind CSS, desplegada en Vercel."
+      "nombre": "Next.js 16 + Strapi 5 + React",
+      "es_destacado": false,
+      "tecnologias": [
+        "Next.js 16",
+        "Strapi (Headless CMS)",
+        "Fetch API / SSR",
+        "Node.js",
+        "Tailwind CSS"
+      ],
+      "descripcion": "Proyecto desarrollado con Next.js 16 y Strapi 5, combinando un frontend moderno y de alto rendimiento con un CMS headless flexible para la gestión de contenido.",
+      "link": null
+    },
+    {
+      "nombre": "Sitio web Mapper",
+      "es_destacado": false,
+      "tecnologias": [
+        "PHP",
+        "WordPress",
+        "ACF PRO",
+        "Bootstrap 5",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "descripcion": "Desarrollo e implementación del sitio web corporativo para Maper en la plataforma Solumóvil. Se construyó una solución basada en WordPress a la medida mediante ACF Pro, priorizando una arquitectura de software ligera, maquetación responsive limpia y optimización de velocidad de carga para maximizar la tasa de conversión e interacciones de los usuarios.",
+      "link": "https://maper.solumovil.com/"
+    },
+    {
+      "nombre": "Sitio web Latin Beer",
+      "es_destacado": false,
+      "tecnologias": [
+        "PHP",
+        "WordPress",
+        "ACF PRO",
+        "Bootstrap 5",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "descripcion": "Desarrollo e implementación del sitio web corporativo para Latin Beer. Se construyó una solución basada en WordPress a la medida mediante ACF Pro, priorizando una arquitectura de software ligera, maquetación responsive limpia y optimización de velocidad de carga para maximizar la tasa de conversión e interacciones de los usuarios.",
+      "link": "https://latinbeer.au/"
     },
     {
       "nombre": "Pokémon Mobile & Pokédex",
+      "es_destacado": false,
       "tecnologias": ["React", "React Native", "Expo", "Tailwind CSS"],
-      "descripcion": "Aplicaciones móvil y web consumiendo la PokéAPI para búsqueda y exploración detallada de personajes."
-    },
-    {
-      "nombre": "Plataforma de Accesos",
-      "tecnologias": ["Laravel", "React", "Tailwind CSS"],
-      "descripcion": "Aplicación desarrollada con Laravel y React para la gestión interna de proyectos nuevos y cotizaciones."
+      "descripcion": "Aplicaciones móvil y web consumiendo la PokéAPI para búsqueda y exploración detallada de personajes.",
+      "link": null
     },
     {
       "nombre": "Sitios Web Institucionales y Blogs de Marcas",
+      "es_destacado": false,
       "tecnologias": ["PHP", "WordPress", "ACF PRO", "Bootstrap"],
-      "descripcion": "Desarrollos personalizados y maquetación a medida para clientes reconocidos como Blog Imusa, Saltín Noel, Latin Beer, Raquel Múnera, Logística Inteligente, Mapper, Easy Logística y Trespalacios."
+      "descripcion": "Desarrollos personalizados y maquetación a medida para clientes reconocidos como Blog Imusa, Saltín Noel, Latin Beer, Raquel Múnera, Logística Inteligente, Mapper, Easy Logística y Trespalacios.",
+      "link": null
     }
   ],
   "educacion": [
@@ -150,50 +218,61 @@
     {
       "institucion": "ITSE (Instituto Tecnológico de Síntesis Electrónica)",
       "titulo": "Electrónica General",
-      "periodo": "2011"
+      "periodo": "2011",
+      "estado": "Completado"
     },
     {
       "institucion": "Liceo El Pedregal",
       "titulo": "Bachiller Académico",
-      "periodo": "2007"
+      "periodo": "2007",
+      "estado": "Graduado"
     }
   ],
-  "cursos_y_certificaciones": {
-    "inteligencia_artificial_y_nuevas_tecnologias": [
-      { "nombre": "Claude 101", "emisor": "Anthropic" },
-      {
-        "nombre": "Desarrollo con IA: Programa con Agentes",
-        "emisor": "Platzi"
-      }
-    ],
-    "desarrollo_web_y_frameworks": [
-      { "nombre": "Curso Astro Dev Book", "emisor": "Midudev" },
-      {
-        "nombre": "React.js & Vite.js / Certificación React Proyectos",
-        "emisor": "Udemy / Web"
-      },
-      {
-        "nombre": "Node.js: API REST con Express.js y MongoDB",
-        "emisor": "Platzi"
-      },
-      {
-        "nombre": "Curso Profesional de JavaScript & Estructura de Datos",
-        "emisor": "Platzi"
-      },
-      { "nombre": "Laravel 5.8", "emisor": "Styde" }
-    ],
-    "certificaciones_oficiales": [
-      { "nombre": "Desarrollo Web & Apps Móviles", "emisor": "Google" },
-      {
-        "nombre": "Accesibilidad Web & Computación en la Nube",
-        "emisor": "Microsoft"
-      },
-      {
-        "nombre": "Certificaciones HTML, JavaScript & SQL",
-        "emisor": "SoloLearn"
-      }
-    ]
-  },
+  "cursos_y_certificaciones": [
+    {
+      "categoria": "Inteligencia Artificial y Nuevas Tecnologías",
+      "cursos": [
+        { "nombre": "Claude 101", "emisor": "Anthropic" },
+        {
+          "nombre": "Desarrollo con IA: Programa con Agentes",
+          "emisor": "Bigschool"
+        }
+      ]
+    },
+    {
+      "categoria": "Desarrollo Web y Frameworks",
+      "cursos": [
+        { "nombre": "Curso Astro Dev Book", "emisor": "Midudev" },
+        {
+          "nombre": "React.js & Vite.js / Certificación React Proyectos",
+          "emisor": "Udemy"
+        },
+        {
+          "nombre": "Node.js: API REST con Express.js y MongoDB",
+          "emisor": "Platzi"
+        },
+        {
+          "nombre": "Curso Profesional de JavaScript & Estructura de Datos",
+          "emisor": "Platzi"
+        },
+        { "nombre": "Laravel 5.8", "emisor": "Styde" }
+      ]
+    },
+    {
+      "categoria": "Certificaciones Oficiales",
+      "cursos": [
+        { "nombre": "Desarrollo Web & Apps Móviles", "emisor": "Google" },
+        {
+          "nombre": "Accesibilidad Web & Computación en la Nube",
+          "emisor": "Microsoft"
+        },
+        {
+          "nombre": "Certificaciones HTML, JavaScript & SQL",
+          "emisor": "SoloLearn"
+        }
+      ]
+    }
+  ],
   "habilidades_tecnicas": {
     "frontend": [
       "HTML5",
@@ -232,11 +311,11 @@
   "preguntas_frecuentes_para_ia": [
     {
       "pregunta": "¿Qué proyectos importantes ha construido Cristian?",
-      "respuesta": "Ha participado en proyectos inmobiliarios como Losani Homes e Inmobiliaria Colviva, plataformas internas con Laravel, aplicaciones modernas en Astro y React como Dev Book, y sitios web para marcas reconocidas como Saltín Noel e Imusa."
+      "respuesta": "Ha participado en proyectos destacados como la plataforma inmobiliaria Losani Homes y el e-commerce Rejiplas."
     },
     {
       "pregunta": "¿Desde qué edad programa Cristian?",
-      "respuesta": "Cristian comenzó a programar a los 14 años aprendiendo de forma autodidacta HTML, CSS y JavaScript."
+      "respuesta": "Cristian comenzó a programar a los 15 años aprendiendo de forma autodidacta HTML, CSS y JavaScript."
     },
     {
       "pregunta": "¿Cómo describirías la personalidad de Cristian como profesional?",
