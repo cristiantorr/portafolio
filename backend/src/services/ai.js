@@ -66,7 +66,7 @@ if (process.env.NODE_ENV === "production") {
   }
 
   model = new ChatGoogleGenerativeAI({
-    model: process.env.GEMINI_MODEL || "gemini-3.6-flash",
+    model: process.env.GEMINI_MODEL || "gemini-3.7-flash",
     apiKey: process.env.GEMINI_API_KEY,
   });
   console.log("Servidor iniciado con Google Gemini en modo Producción.");
@@ -111,10 +111,22 @@ async function generateAIResponse(userMessage, history = []) {
   ];
 
   // 4. Invocar al modelo con el prompt y el historial formateado
-  const response = await model.invoke(messages);
-  return typeof response.content === "string"
-    ? response.content
-    : JSON.stringify(response.content);
+
+  try {
+    const response = await model.invoke(messages);
+    return typeof response.content === "string"
+      ? response.content
+      : JSON.stringify(response.content);
+  } catch (error) {
+    if (
+      error.status === 429 ||
+      error.message?.includes("QuotaExhausted") ||
+      error.message?.includes("429")
+    ) {
+      return "El asistente ha alcanzado su límite temporal de consultas. Puedes revisar mi trayectoria en la página o contactarme directamente.";
+    }
+    throw error;
+  }
 }
 
 module.exports = { generateAIResponse };
