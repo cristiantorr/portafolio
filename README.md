@@ -1,192 +1,270 @@
-# Portafolio - Cristian Torres
+# Portafolio de Cristian Torres
 
-Portafolio personal moderno y responsivo desarrollado con **Astro** y **Tailwind CSS**. Showcasing de proyectos, experiencia profesional, estudios y certificaciones.
+Portafolio profesional personal con información sobre experiencia, estudios, certificaciones y proyectos. El proyecto incluye un frontend en Astro y un backend en Node.js que alimenta un asistente conversacional basado en el perfil profesional.
 
----
+## Contenido
 
-- [Descripción](#descripción)
 - [Características](#características)
+- [Arquitectura](#arquitectura)
 - [Tecnologías](#tecnologías)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Instalación](#instalación)
-- [Comandos Disponibles](#comandos-disponibles)
-- [Variables de Entorno](#variables-de-entorno)
-- [Deployment](#deployment)
+- [Estructura](#estructura)
+- [Requisitos](#requisitos)
+- [Instalación y desarrollo](#instalación-y-desarrollo)
+- [Variables de entorno](#variables-de-entorno)
+- [API del backend](#api-del-backend)
+- [Scripts](#scripts)
+- [Despliegue](#despliegue)
+- [Personalización](#personalización)
 - [Contacto](#contacto)
 
----
+## Características
 
-## 🎯 Descripción
+- Página principal con presentación, experiencia, estudios y cursos.
+- Página de proyectos con sus tecnologías y enlaces.
+- Diseño responsive con tema claro y oscuro.
+- Componentes Astro reutilizables y estilos con Tailwind CSS.
+- Chat de IA para consultar el perfil profesional.
+- Perfil profesional centralizado en un archivo JSON.
+- Modelo local con Ollama durante el desarrollo y Google Gemini en producción.
 
-Este es un portafolio profesional personal que muestra:
+## Arquitectura
 
-- **Presentación personal** con información sobre mí
-- **Proyectos destacados** con descripción de tecnologías utilizadas
-- **Experiencia profesional** y trayectoria laboral
-- **Formación académica** y certificaciones
-- **Cursos completados** en plataformas especializadas
-- **Tema oscuro/claro** para mejor experiencia de usuario
-- **Diseño responsive** optimizado para todos los dispositivos
+```text
+Navegador
+   |
+   v
+Frontend Astro (puerto 4321)
+   |
+   | POST /api/chat
+   v
+Backend Express (puerto 3000)
+   |
+   +--> Ollama en desarrollo
+   |
+   +--> Google Gemini en producción
+```
 
----
+El frontend obtiene la URL del chat desde `PUBLIC_BACKEND_URL`. Si la variable no existe, usa `http://localhost:3000/api/chat`. El backend carga `src/data/cristian.json` como fuente única de información para el asistente.
 
-## ✨ Características
-
-- ⚡ **Alto rendimiento** - Generado estáticamente con Astro
-- 🎨 **Diseño moderno** - Tailwind CSS para estilos responsivos
-- 🌓 **Theme Toggle** - Soporte para modo claro y oscuro
-- 📱 **Totalmente responsive** - Optimizado para mobile, tablet y desktop
-- 🚀 **Optimización SEO** - Meta tags y estructura semántica
-- 🖼️ **Galería de proyectos** - Showcase interactivo de trabajos
-- 📜 **Certificaciones** - Sección dedicada a certificados profesionales
-- 🔗 **Enlaces sociales** - Integración con redes profesionales
-- 🎯 **Fácil de mantener** - Componentes reutilizables y código limpio
-
----
-
-## 🛠️ Tecnologías
+## Tecnologías
 
 ### Frontend
 
-- **[Astro 5.5.5](https://astro.build/)** - Framework moderno basado en JavaScript
-- **[Tailwind CSS 4.0](https://tailwindcss.com/)** - Utilidad CSS para diseños eficientes
-- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático para JavaScript
+- [Astro 5](https://astro.build/), con salida `server` y adaptador de Vercel.
+- [Tailwind CSS 4](https://tailwindcss.com/) mediante el plugin de Vite.
+- TypeScript para la configuración y el chequeo del proyecto Astro.
 
-### Hosting & Deployment
+### Backend
 
-- **[Vercel](https://vercel.com/)** - Hosting optimizado con integración automática
+- Node.js y [Express 5](https://expressjs.com/).
+- `cors`, `dotenv` y `nodemon`.
+- [LangChain](https://js.langchain.com/) para construir el contexto de la conversación.
+- `@langchain/ollama` para desarrollo local.
+- `@langchain/google-genai` para producción.
 
-### Desarrollo
+## Estructura
 
-- **Node.js** - Runtime de JavaScript
-- **npm** - Gestor de paquetes
-
----
-
-## 📁 Estructura del Proyecto
-
-```
+```text
 portafolio/
-├── src/
-│   ├── assets/                # Recursos estáticos (imágenes, certificados)
-│   │   └── certificados/      # Certificaciones profesionales
-│   ├── components/            # Componentes reutilizables
-│   │   ├── Aboutme.astro      # Sección sobre mí
-│   │   ├── Courses.astro      # Sección de cursos
-│   │   ├── Experience.astro   # Experiencia profesional
-│   │   ├── Footer.astro       # Pie de página
-│   │   ├── Header.astro       # Encabezado/Navegación
-│   │   ├── Hero.astro         # Sección héroe
-│   │   ├── Studies.astro      # Formación académica
-│   │   ├── ThemeToggle.astro  # Toggle de tema oscuro/claro
-│   │   ├── Welcome.astro      # Bienvenida
-│   │   ├── icons/             # Componentes de iconos
-│   │   └── projects.astro     # Componente de proyectos
-│   ├── layouts/               # Layouts reutilizables
-│   ├── pages/                 # Rutas del sitio
-│   │   ├── index.astro        # Página principal
-│   │   └── proyectos.astro    # Página de proyectos
-│   └── styles/                # Estilos globales
-├── public/                    # Archivos públicos servidos directamente
-│   ├── proyectos/            # Imágenes de proyectos
-│   ├── torres.webp           # Foto de perfil
-│   ├── torres-full.webp      # Foto de perfil completa
-│   └── favicon.svg           # Ícono del sitio
-├── astro.config.mjs          # Configuración de Astro
-├── tailwind.config.js        # Configuración de Tailwind CSS
-├── tsconfig.json             # Configuración de TypeScript
-├── package.json              # Dependencias y scripts
-└── README.md                 # Este archivo
+├── src/                         # Frontend Astro
+│   ├── assets/                  # Imágenes y certificados importados
+│   ├── components/              # Secciones y componentes de la interfaz
+│   │   ├── AIChat.astro         # Interfaz del asistente de IA
+│   │   ├── Aboutme.astro        # Información personal
+│   │   ├── Courses.astro        # Cursos y certificaciones
+│   │   ├── Experience.astro     # Experiencia profesional
+│   │   ├── Hero.astro           # Presentación principal
+│   │   ├── projects.astro       # Proyectos destacados
+│   │   └── ...
+│   ├── layouts/                # Layouts compartidos
+│   ├── pages/                  # Rutas del sitio
+│   │   ├── index.astro         # Página de inicio
+│   │   └── proyectos.astro     # Página de proyectos
+│   └── styles/                 # Estilos globales
+├── public/                     # Archivos servidos directamente
+├── backend/
+│   ├── src/
+│   │   ├── data/cristian.json  # Datos usados por el asistente
+│   │   ├── routes/chat.js      # Endpoint POST /api/chat
+│   │   ├── services/ai.js      # Modelo, prompt e historial
+│   │   └── server.js           # Aplicación Express
+│   ├── package.json
+│   └── README.md               # Caso de estudio del asistente
+├── astro.config.mjs
+├── package.json
+└── README.md
 ```
 
----
+## Requisitos
 
-## 📦 Instalación
+- Node.js 18.14 o superior.
+- npm 9 o superior.
+- Ollama y un modelo instalado para ejecutar el chat localmente.
+- Una API key de Google Gemini para ejecutar el backend en producción.
 
-### Requisitos previos
+## Instalación y desarrollo
 
-- **Node.js** (versión 18.14 o superior)
-- **npm** (versión 9 o superior)
+Instala las dependencias de cada aplicación desde la raíz del proyecto:
 
-### Desplegar con Vercel
+```bash
+npm install
+cd backend
+npm install
+```
 
-El proyecto está preconfigurado para funcionar con Vercel:
+### 1. Configurar el backend
 
-1. **Conectar el repositorio**
-   - Inicia sesión en [Vercel](https://vercel.com)
-   - Conecta tu repositorio de GitHub
+Crea `backend/.env`:
 
-2. **Configuración automática**
-   - Vercel detectará Astro automáticamente
-   - Usará los comandos correctos de build
+```env
+PORT=3000
+NODE_ENV=development
+OLLAMA_MODEL=llama3.2
+OLLAMA_BASE_URL=http://localhost:11434
+```
 
-3. **Despliegue automático**
-   - Cada push a `main` se desplegará automáticamente
-   - Los PRs tendrán previews automáticos
+Inicia Ollama y asegúrate de tener el modelo disponible:
 
-### Otras plataformas
+```bash
+ollama pull llama3.2
+```
 
-- **Netlify**: Compatible con Astro
-- **GitHub Pages**: Requiere configuración adicional
-- **Self-hosting**: Genera estático con `npm run build`
+Después inicia el backend desde `backend/`:
 
----
+```bash
+npm run dev
+```
 
-## 📝 Cómo Personalizar
+### 2. Configurar el frontend
 
-### Agregar nuevos proyectos
+Para desarrollo local no es obligatorio crear un `.env`, porque el componente de chat usa `http://localhost:3000/api/chat` por defecto. Si el backend está en otra URL, crea `.env` en la raíz:
 
-1. Ve a `src/components/projects.astro`
-2. Añade un nuevo proyecto al array de datos
-3. Las imágenes van en `public/proyectos/`
+```env
+PUBLIC_BACKEND_URL=http://localhost:3000/api/chat
+```
 
-### Modificar información personal
+En otra terminal, desde la raíz del proyecto, inicia Astro:
 
-1. Edita los componentes en `src/components/`
-2. Actualiza `Aboutme.astro` con tu información
-3. Reemplaza las imágenes de perfil en `public/`
+```bash
+npm run dev
+```
 
-### Cambiar colores
+Abre la URL que muestre Astro, normalmente `http://localhost:4321`.
 
-1. Modifica `tailwind.config.js`
-2. Usa clases de Tailwind en los componentes
+## Variables de entorno
 
----
+### Frontend: `.env` en la raíz
 
-## 📱 Optimizaciones
+| Variable             | Uso                               | Ejemplo                          |
+| -------------------- | --------------------------------- | -------------------------------- |
+| `PUBLIC_BACKEND_URL` | URL completa del endpoint de chat | `http://localhost:3000/api/chat` |
 
-- ✅ Imágenes optimizadas en formato WebP
-- ✅ CSS crítico inline para faster first paint
-- ✅ Code splitting automático con Astro
-- ✅ Lazy loading de componentes
-- ✅ Minificación de producción
+Las variables con prefijo `PUBLIC_` se exponen al navegador. No coloques secretos en este archivo.
 
----
+### Backend: `backend/.env`
 
-## 📞 Contacto
+| Variable          | Requerida        | Uso                                                       |
+| ----------------- | ---------------- | --------------------------------------------------------- |
+| `PORT`            | No               | Puerto del servidor; por defecto `3000`.                  |
+| `NODE_ENV`        | No               | Usa `development` para Ollama y `production` para Gemini. |
+| `OLLAMA_MODEL`    | No               | Modelo local; por defecto `llama3.2`.                     |
+| `OLLAMA_BASE_URL` | No               | URL de Ollama; por defecto `http://localhost:11434`.      |
+| `GEMINI_API_KEY`  | Sí en producción | Credencial privada de Google Gemini.                      |
+| `GEMINI_MODEL`    | No               | Modelo de Gemini; por defecto `gemini-3.6-flash`.         |
+
+No publiques `GEMINI_API_KEY` ni subas archivos `.env` al repositorio.
+
+## API del backend
+
+### `GET /`
+
+Comprueba que el servidor está activo.
+
+Respuesta:
+
+```json
+{
+  "message": "Backend del portafolio funcionando correctamente"
+}
+```
+
+### `GET /api/profile`
+
+Devuelve el contenido de `backend/src/data/cristian.json`.
+
+### `POST /api/chat`
+
+Genera una respuesta del asistente usando el perfil y el historial enviado.
+
+Solicitud:
+
+```json
+{
+  "message": "¿Qué experiencia tiene Cristian con React?",
+  "history": [
+    { "role": "user", "content": "Hola" },
+    { "role": "assistant", "content": "Hola, ¿en qué puedo ayudarte?" }
+  ]
+}
+```
+
+Respuesta exitosa:
+
+```json
+{
+  "response": "..."
+}
+```
+
+El campo `message` es obligatorio. El historial acepta mensajes con roles `user`, `assistant` o `model`; el servidor descarta otros roles antes de enviarlos al modelo.
+
+## Scripts
+
+Desde la raíz:
+
+| Comando           | Descripción                                |
+| ----------------- | ------------------------------------------ |
+| `npm run dev`     | Inicia el servidor de desarrollo de Astro. |
+| `npm run build`   | Genera el build de producción de Astro.    |
+| `npm run preview` | Sirve localmente el build generado.        |
+
+Desde `backend/`:
+
+| Comando       | Descripción                                             |
+| ------------- | ------------------------------------------------------- |
+| `npm run dev` | Inicia Express con recarga automática mediante Nodemon. |
+
+El backend todavía no define un script de producción ni una suite de pruebas automatizada.
+
+## Despliegue
+
+### Frontend
+
+El frontend está configurado con `@astrojs/vercel` y `output: "server"`. En Vercel:
+
+1. Configura la raíz del proyecto en la carpeta `portafolio`.
+2. Añade `PUBLIC_BACKEND_URL` con la URL pública del backend y el path `/api/chat`.
+3. Usa `npm run build` como comando de build.
+
+### Backend
+
+El backend debe desplegarse como un servicio Node.js independiente que ejecute `backend/src/server.js`. Configura como mínimo `NODE_ENV=production` y `GEMINI_API_KEY`; opcionalmente define `PORT` y `GEMINI_MODEL`.
+
+La URL pública del servicio debe ser accesible desde el dominio del frontend y debe incluirse en `PUBLIC_BACKEND_URL`.
+
+## Personalización
+
+- Actualiza la información del asistente en `backend/src/data/cristian.json`.
+- Modifica el prompt y la selección del modelo en `backend/src/services/ai.js`.
+- Edita las secciones visuales en `src/components/`.
+- Añade o modifica rutas en `src/pages/`.
+- Guarda imágenes públicas en `public/` y recursos importados en `src/assets/`.
+
+## Contacto
 
 **Cristian Torres**
 
-- 🌐 [Portafolio](https://portafolio-nine-umber.vercel.app/)
-- 📧 Email: ps4cristiantorr@gmail.com
-- 💼 [LinkedIn](https://linkedin.com/in/cristiantorr)
-- 🐙 [GitHub](https://github.com/cristiantorr)
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
----
-
-## 🙏 Agradecimientos
-
-- [Astro](https://astro.build/) por el framework increíble
-- [Tailwind CSS](https://tailwindcss.com/) por los utilidades CSS
-- [Vercel](https://vercel.com/) por el hosting confiable
-- Inspiración en la comunidad midudev
-
----
-
-**Última actualización:** 2026
+- Portafolio: [portafolio-nine-umber.vercel.app](https://portafolio-nine-umber.vercel.app/)
+- Email: [ps4cristiantorr@gmail.com](mailto:ps4cristiantorr@gmail.com)
+- LinkedIn: [linkedin.com/in/cristiantorr](https://linkedin.com/in/cristiantorr)
+- GitHub: [github.com/cristiantorr](https://github.com/cristiantorr)
