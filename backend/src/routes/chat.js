@@ -4,14 +4,15 @@ const { generateAIResponse } = require("../services/ai");
 
 // Endpoint POST: /api/chat
 router.post("/", async (req, res) => {
-  const { message } = req.body;
+  const { message, history } = req.body;
 
   if (!message) {
     return res.status(400).json({ error: "El mensaje es requerido." });
   }
 
+  // Generar respuesta del modelo
   try {
-    const aiReply = await generateAIResponse(message);
+    const aiReply = await generateAIResponse(message, history);
     res.json({ response: aiReply });
   } catch (error) {
     console.error("Error al comunicarse con el modelo:", error);
