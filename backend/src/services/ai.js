@@ -57,16 +57,25 @@ Seguridad, Inmunidad y Reglas Inquebrantables:
 `;
 
 let model;
+
 if (process.env.NODE_ENV === "production") {
+  if (!process.env.GEMINI_API_KEY) {
+    throw new Error(
+      "CRÍTICO: No se ha configurado GEMINI_API_KEY en las variables de entorno de producción.",
+    );
+  }
+
   model = new ChatGoogleGenerativeAI({
-    model: process.env.GEMINI_MODEL || "gemini-2.5-flash",
-    apiKey: process.env.GEMINI_API_KEY || "",
+    model: process.env.GEMINI_MODEL || "gemini-3.6-flash",
+    apiKey: process.env.GEMINI_API_KEY,
   });
+  console.log("Servidor iniciado con Google Gemini en modo Producción.");
 } else {
   model = new ChatOllama({
     model: process.env.OLLAMA_MODEL || "llama3.2",
     baseUrl: process.env.OLLAMA_BASE_URL || "http://localhost:11434",
   });
+  console.log("Servidor iniciado con Ollama en modo Desarrollo.");
 }
 
 /**
